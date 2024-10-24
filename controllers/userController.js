@@ -60,7 +60,7 @@ exports.createUser = async (req, res) => {
         return res.status(400).json({ message: err });
       }
   
-      const { departmentId, categoryId, name, age, rate, salary, password, email, roleId } = req.body;
+      const { departmentId, categoryId, name, age, rate, salary, password, email, roleId,userId } = req.body;
       const userImg = req.file ? req.file.filename : '';  // Store the file name/path if uploaded
   
       try {
@@ -75,7 +75,8 @@ exports.createUser = async (req, res) => {
           password,
           email,
           roleId,
-          userImg  // Save the uploaded image file name/path here
+          userImg , // Save the uploaded image file name/path here
+          userId
         });
   
         await newUser.save();  // Save the user in the database
@@ -164,7 +165,7 @@ exports.getUserById = async (req, res) => {
 // Update a user by ID
 exports.updateUser = async (req, res) => {
     const { id } = req.params;
-    const { name, age, rate, salary, email, departmentId, categoryId, roleId, profilePicture } = req.body; 
+    const { name, age, rate, salary, email, departmentId, categoryId, roleId, userImg,userId } = req.body; 
 
     try {
         // Find user by ID and update
@@ -179,7 +180,8 @@ exports.updateUser = async (req, res) => {
                 departmentId,
                 categoryId,
                 roleId,
-                profilePicture, 
+                userImg,
+                userId 
             },
             { new: true, runValidators: true } 
         );

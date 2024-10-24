@@ -96,10 +96,34 @@ const deleteCategory = async (req, res) => {
     }
 };
 
+const getCategoryByName = async (req, res) => {
+    try {
+        // Check if categoryName is provided in query or body
+        const categoryName = req.query.categoryName || req.body.categoryName;
+
+        if (!categoryName) {
+            return res.status(400).json({ message: 'Category name is required' });
+        }
+
+        // Find the category by name
+        const category = await Category.findOne({ categoryName: categoryName }).populate('departmentId');
+
+        if (!category) {
+            return res.status(404).json({ message: 'Category not found' });
+        }
+
+        // Return the category data
+        res.json(category);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error });
+    }
+};
+
 module.exports = {
     getAllCategories,
     getCategoriesByDepartmentId,
     createCategory,
     updateCategory,
-    deleteCategory
+    deleteCategory,
+    getCategoryByName
 };

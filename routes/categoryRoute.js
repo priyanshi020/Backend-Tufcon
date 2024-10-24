@@ -15,4 +15,6 @@ router.post('/updateCategories/:id', categoryController.updateCategory);
 // Route to delete category by ID
 router.post('/deleteCategories/:id', categoryController.deleteCategory);
 
+router.get('/getCategorybyname', categoryController.getCategoryByName);
+
 module.exports = router;

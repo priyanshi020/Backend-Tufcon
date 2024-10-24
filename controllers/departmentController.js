@@ -79,3 +79,25 @@ exports.deleteDepartment = async (req, res) => {
     }
 };
 
+exports.getDepartmentByName = async (req, res) => {
+    try {
+        // Check if departmentName is provided in query or body
+        const departmentName = req.query.departmentName || req.body.departmentName;
+
+        if (!departmentName) {
+            return res.status(400).json({ message: 'Department name is required' });
+        }
+
+        // Find the department by name
+        const department = await Department.findOne({ departmentName: departmentName });
+
+        if (!department) {
+            return res.status(404).json({ message: 'Department not found' });
+        }
+
+        // Return the department data
+        res.json(department);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error });
+    }
+};

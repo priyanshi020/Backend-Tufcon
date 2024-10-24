@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
     },
     salary: {
         type: Number,
-        required: true,
+       
     },
     password: {
         type: String,
@@ -33,6 +33,9 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
+    },
+    userId:{
+        type:String,
     },
     roleId: {
         type: Number,

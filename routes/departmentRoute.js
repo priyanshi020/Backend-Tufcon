@@ -14,4 +14,6 @@ router.post('/updateDepartment/:id', departmentController.updateDepartment);
 
 router.post('/deleteDepartment/:id', departmentController.deleteDepartment);
 
+router.get('/getDepartmentByName', departmentController.getDepartmentByName);
+
 module.exports = router;
