@@ -62,7 +62,7 @@ exports.createUser = async (req, res) => {
   
       const { departmentId, categoryId, name, age, rate, salary, password, email, roleId,userId } = req.body;
       const userImg = req.file ? req.file.filename : '';  // Store the file name/path if uploaded
-  
+  console.log('userImg',userImg)
       try {
         // Create a new user with the provided details and uploaded image
         const newUser = new User({
