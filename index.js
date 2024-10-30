@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const bodyParser = require("body-parser");
 const userRoutes = require('./routes/userRoutes');
 const roleRouter = require('./routes/roleRoute')
 const departmentRouter = require('./routes/departmentRoute');
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
 
 // Connect to MongoDB
