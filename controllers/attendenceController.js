@@ -21,7 +21,7 @@
     
             // Check if it's base64 or a URL
             if (image.startsWith('data:image')) {
-                const binaryImage = base64ToBinary(image); // Convert base64 to binary
+                const binaryImage = base64ToBinary(image); 
                 response = await axios({
                     method: 'post',
                     url: `https://tufconfaceinstance.cognitiveservices.azure.com/face/v1.0/detect`,
@@ -29,7 +29,7 @@
                         'Ocp-Apim-Subscription-Key':'5wlejCeK0qaciBRdQMYDg5hZqKzMaliZ3enwuNXXUfeENOS8AgVwJQQJ99AJACGhslBXJ3w3AAAKACOGwL5E',
                         'Content-Type': 'application/octet-stream'
                     },
-                    data: binaryImage  // Send binary image data
+                    data: binaryImage  
                 });
             } else {
                 // Assuming it's a URL

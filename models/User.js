@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema({
     },
     roleId: {
         type: Number,
-        ref: 'Role',  // Make sure the reference is capitalized correctly
+        ref: 'Role',  
         required: true,
     },
     attendance: [
