@@ -54,6 +54,7 @@ exports.loginUser = async (req, res) => {
 //     }
 // };
 exports.createUser = async (req, res) => {
+    console.log("aaaaaaaaaa", res )
     // Use multer to upload the file
     upload(req, res, async (err) => {
       if (err) {

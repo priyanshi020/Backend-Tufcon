@@ -29,6 +29,6 @@ const upload = multer({
   fileFilter: (req, file, cb) => {
     checkFileType(file, cb);
   }
-}).single('userImg');  // Expecting a single file field named 'userImg'
+}).single('userImg'); 
 
 module.exports = upload;
