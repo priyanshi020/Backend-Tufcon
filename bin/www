@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('coverCraft:server');
+var debug = require('debug')('tufcon:server');
 var http = require('http');
 
 /**
