@@ -8,10 +8,15 @@ const departmentRouter = require('./routes/departmentRoute');
 const categoryRouter = require('./routes/categoryRoute')
 dotenv.config();
 const attendanceRoutes = require('./routes/attendenceRoute');
-
+// const http=require('http').Server(app)
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+
+// http.listen(3000,function(){
+//     console.log('Server is running herererere')
+// })
 
 // Middleware
 app.use(express.json());
