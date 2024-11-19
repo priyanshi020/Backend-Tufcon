@@ -3,13 +3,16 @@ const roleModel = require('../models/roleModel');
 exports.createRole = async (req, res) => {
     try {
         const roleData = req.body;
-        await roleModel.create(roleData);
+        await roleModel.create({roleData});
         res.json({
+
             message: "Role Created Successfully"
         });
     } catch (error) {
         console.error("Error in creating role:", error);
-        return res.status(500).send({ message: "Error in creating Role" });
+        return res.status(500).send({ 
+            message:error
+         });
     }
 };
 // create role api end
